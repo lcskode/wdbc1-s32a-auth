@@ -1,0 +1,29 @@
+{
+  "name": "wdbc1-s32a-auth",
+  "version": "1.0.0",
+  "description": "**Auth Code** * Setup folder structure   * Install needed packages   * Add root route and template   * Add secret route and template",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lcskode/wdbc1-s32a-auth.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lcskode/wdbc1-s32a-auth/issues"
+  },
+  "homepage": "https://github.com/lcskode/wdbc1-s32a-auth#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.3.12",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.1"
+  }
+}
