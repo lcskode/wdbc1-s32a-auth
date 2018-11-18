@@ -1,4 +1,4 @@
-### S32-L285 Secret App Setup  
+### S32-L285 Secret App Setup V1
 **Auth Code**
 * Setup folder structure  
 * Install needed packages  
