@@ -1,5 +1,10 @@
-### S32-L285 Secret App Setup V1
-**Auth Code**
+### S32-L285 Auth V2  
+**Secret App Configure - Code**  
+* Create User Model  
+* Configure passport  
+
+### S32-L285 Auth V1
+**Secret App Setup - Auth Code**
 * Setup folder structure  
 * Install needed packages  
 * Add root route and template  
