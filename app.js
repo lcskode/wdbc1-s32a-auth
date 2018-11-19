@@ -47,7 +47,8 @@ app.get("/", function(req, res){
 });
 
 // SECRET ROUTE
-app.get("/secret", function(req, res){
+// add isLoggedIn middleware, will run isLoggedIn first. If user is logged in, continue loading secret page. If not logged in, redirect to login page.
+app.get("/secret", isLoggedIn, function(req, res){
   res.render("secret");
 });
 
@@ -87,6 +88,23 @@ app.post("/login", passport.authenticate("local", {
 }), function(req, res){
 
 });
+
+// LOGOUT ROUTE
+app.get("/logout", function(req, res){
+  // res.render("logout");
+  // res.send("WILL LOG YOU OUT BUT NOT YET...");
+  req.logout();
+  res.redirect("/");
+});
+
+// add isLoggedIn middleware
+function isLoggedIn(req, res, next){
+  if(req.isAuthenticated()){
+    return next();
+  }
+  // does not require else statement since return is used.
+  res.redirect("login");
+}
 
 /****************************************************************************** 
 SERVER 
