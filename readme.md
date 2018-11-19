@@ -1,4 +1,9 @@
-### S32-L285 Auth V2  
+### S32-L287 Auth V3  
+**Secret App Login**  
+* Add Register Routes  
+* Add Register Form  
+
+### S32-L286 Auth V2  
 **Secret App Configure - Code**  
 * Create User Model  
 * Configure passport  

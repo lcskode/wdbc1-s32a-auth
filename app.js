@@ -15,6 +15,7 @@ CONFIG
 
 var app = express();
 app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({extended: true}));
 
 // tell app to use express-session
 app.use(require("express-session")({
@@ -48,6 +49,27 @@ app.get("/secret", function(req, res){
   res.render("secret");
 });
 
+// REGISTER ROUTE
+// show signup form
+app.get("/register", function(req, res){
+  res.render("register");
+});
+// handle user sign up
+app.post("/register", function(req, res){
+  req.body.username;
+  req.body.password;
+
+  // Add password as 2nd argument so that it will be encrypted first before saving to db.
+  User.register(new User({username: req.body.username}), req.body.password, function(err, user){
+    if (err) {
+      console.log(err);
+      return res.render("register");
+    } 
+    passport.authenticate("local")(req, res, function(){
+      res.redirect("/secret");
+    });
+  });
+});
 
 /****************************************************************************** 
 SERVER 
