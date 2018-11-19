@@ -28,6 +28,8 @@ app.use(require("express-session")({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// create new local strategy using user.authenticate method during login coming from passport-local-mongoose
+passport.use(new localStrategy(User.authenticate()));
 // reading session and encoding it and put it back in the session
 passport.serializeUser(User.serializeUser());
 // reading session and un-encoding it
@@ -69,6 +71,21 @@ app.post("/register", function(req, res){
       res.redirect("/secret");
     });
   });
+});
+
+// LOGIN ROUTES
+// show login form
+app.get("/login", function(req, res){
+  res.render("login");
+});
+// handle user login
+// middleware - code that runs before the final route callback. When app gets POST request, middleware will run immediately.
+// middleware - sits between then beginning and end of route.
+app.post("/login", passport.authenticate("local", {
+  successRedirect: "/secret",
+  failureRedirect: "/login"
+}), function(req, res){
+
 });
 
 /****************************************************************************** 
